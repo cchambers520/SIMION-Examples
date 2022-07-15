@@ -4,8 +4,12 @@ I have made this repo to store simple examples of SIMION code for reference. Ide
 
 ## Toy Model: Steering Plates
 
-This geometry was coded from scratch in the 'steeringPlates.gem' file. This simple model consists of two pairs of steering plates, one in the y-direction and the other in the z-direction. Electrodes 1 and 2 steer in the z-direction, and electrodes 3 and 4 steer in the y-direction. Each of the 4 electrodes can be individually biased. The refined PA is shown below:
+This geometry was coded from scratch in the `steeringPlates.gem` file. This simple model consists of two pairs of steering plates, one in the y-direction and the other in the z-direction. Electrodes 1 and 2 steer in the z-direction, and electrodes 3 and 4 steer in the y-direction. Each of the 4 electrodes can be individually biased. The refined PA is shown below:
 
 <p align="center">
 <img src="SteeringPlates/img/SteeringPlatesAnnotated.jpg" alt="SteeringPlates.gem" width="500" class="center"/>
 </p>
+
+### Workbench: Steering Sweep
+
+This workbench is set up to scan electrodes 1 and 3 and record all the ion splats for each  combination of voltages. Each run is saved as a .csv file in the `/data` directory. Each file has the naming convention: `SteeringSweepData_V1_*XV_V3_*YV.csv` where * is p(n) denoting positive(negative) polarity, and X(Y) is the absolute value of the voltage on V1(V3). The csv file contains a two-line header with the voltages and the column names followed by the splat y and z position of each ion in mm. 
