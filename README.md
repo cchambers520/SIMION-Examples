@@ -12,10 +12,10 @@ This geometry was coded from scratch in the `steeringPlates.gem` file. This simp
 
 ### Workbench: Steering Sweep
 
-This workbench is set up to scan electrodes 1 and 3 and record all the ion splats for each  combination of voltages. Each run is saved as a .csv file in the `/data` directory. 
+This workbench is set up to scan electrodes 1 and 3 and record all the initial and final (y,z) positions for each combination of voltages. Each run is saved as a .csv file in the `/data` directory. 
 ```
 Each file has the naming convention: SteeringSweepData_V1_*XV_V3_*YV.csv
 * is p or n denoting positive or negative polarity
 X and Y are the absolute values of the voltage on V1 and V3 
 ```
-The csv file contains a two-line header with the voltages and the column names followed by the splat y and z position of each ion in mm. 
+The csv file contains a two-line header with the voltages and the column names followed by the inital and final y and z position of each ion in mm. 
