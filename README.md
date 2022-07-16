@@ -18,4 +18,4 @@ Each file has the naming convention: SteeringSweepData_V1_*XV_V3_*YV.csv
 * is p or n denoting positive or negative polarity
 X and Y are the absolute values of the voltage on V1 and V3 
 ```
-The csv file contains a two-line header with the voltages and the column names followed by the inital and final y and z position of each ion in mm. 
+The csv file contains a two-line header with the voltages and the column names followed by the inital and final (y,z) position of each ion in mm. 
