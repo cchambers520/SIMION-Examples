@@ -1,0 +1,15 @@
+; Simple einzel lens geometry
+
+pa_define(150,30,30,p,none,electrostatic,1,1,1, surface=fractional)
+
+locate(10,15,15,1,0,0,0){
+e(1) { rotate_fill(360) { within { box(0, 8, 30, 10) } } }
+}
+
+locate(45,15,15,1,0,0,0){
+e(2) { rotate_fill(360) { within { box(0, 8, 15, 10) } } }
+}
+
+locate(65,15,15,1,0,0,0){
+e(3) { rotate_fill(360) { within { box(0, 8, 30, 10) } } }
+}
