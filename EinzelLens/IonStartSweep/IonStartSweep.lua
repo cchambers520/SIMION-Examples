@@ -18,7 +18,7 @@ local KE_val   -- present voltage on V1
 local Ang_val  -- present voltage on V3
 local nions    -- number of ions to fly
 
-nions = 200 -- adjust number of ions here
+nions = 10 -- adjust number of ions here
 
 function segment.flym()
   sim_trajectory_image_control = 1 -- don't keep trajectories
@@ -48,13 +48,16 @@ end
 
 -- called on start of each run.
 local first
+local rec_ion
 function segment.initialize_run()
   first = true
+  rec_ion = -1
   file = io.open("data\\IonStartSweepData_KE_"..string.format("%02d",KE_val).."_CA_"..string.format("%02d",Ang_val)..".csv", 'w')
-  file:write("Generated from IonStartSweep.iob -- KE = ",string.format("%02d",KE_val),"eV ConeAngle = ",string.format("%02d",Ang_val),"deg\nFinal-Y-pos(mm), Final-Z-pos(mm)")
+  file:write("Generated from IonStartSweep.iob -- KE = ",string.format("%02d",KE_val),"eV ConeAngle = ",string.format("%02d",Ang_val),"deg\nX-pos(mm),Y-pos(mm),Z-pos(mm)")
 end
 
   -- called on every time-step for each particle in PA instance.
+
 function segment.other_actions()
   -- Update the PE surface display on first time-step of run.
   if first 
@@ -63,9 +66,10 @@ function segment.other_actions()
     sim_update_pe_surface = 1
   end
   -- These if conditionals are checked each time-step on each ion in the run. Very useful for recording individual ion data at some point in the run.
-  -- Record splat location for each ion (specifically leaving workbench)
-  if (ion_splat == -3)
+  -- Record ions at some plane
+  if (ion_px_mm >= 120 and ion_number ~= rec_ion)
   then
-    file:write('\n',tostring(ion_py_mm),",",tostring(ion_pz_mm))
+    file:write('\n',tostring(ion_px_mm),",",tostring(ion_py_mm),",",tostring(ion_pz_mm))
+    rec_ion = ion_number
   end
 end
