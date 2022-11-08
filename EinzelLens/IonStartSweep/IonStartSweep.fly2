@@ -1,0 +1,26 @@
+-- Read in any variables.
+local var = _G.var or {}
+local KE_val = var.KE_val or 0
+local Ang_val = var.Ang_val or 0
+local nions = var.nions or 100
+print('KE =', KE_val)
+print('Cone Angle (deg)=', Ang_val)
+
+particles {
+  coordinates = 0,
+  standard_beam {
+    n = nions,
+    tob = 0,
+    mass = 136,
+    charge = 1,
+    ke = KE_val,
+    direction = cone_direction_distribution {
+      axis = vector(1, 0, 0),
+      half_angle = Ang_val,
+      fill = false
+    },
+    cwf = 1,
+    color = 2,
+    position = vector(1, 15, 15)
+  }
+}
